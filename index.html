@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Explorer SPA</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <h1>🎬 Movie Explorer</h1>
+        <div class="search-container">
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for a movie (e.g., Inception)..."
+              autocomplete="off"
+            />
+            <button id="search-button">Search</button>
+          </div>
+
+          <div class="filters">
+            <div class="filter-group">
+              <label for="type-filter">Type</label>
+              <select id="type-filter">
+                <option value="">All Categories</option>
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="year-filter">Release Year</label>
+              <input
+                type="number"
+                id="year-filter"
+                placeholder="e.g. 2010"
+                min="1900"
+                max="2099"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Loading Indicator -->
+        <div id="loading" class="status-message hidden">
+          <div class="spinner"></div>
+          <p>Fetching movie details...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="status-message error hidden">
+          <p id="error-text">Movie not found.</p>
+        </div>
+
+        <!-- Movie Details Card -->
+        <div id="movie-card" class="movie-card hidden">
+          <div class="poster-container">
+            <img id="movie-poster" src="" alt="Movie Poster" />
+          </div>
+          <div class="movie-info">
+            <h2 id="movie-title">Movie Title</h2>
+            <div class="tags">
+              <span id="movie-year" class="tag">Year</span>
+              <span id="movie-genre" class="tag outline">Genre</span>
+            </div>
+            <div class="details-grid">
+              <div class="detail-item">
+                <strong>Director</strong>
+                <span id="movie-director">Director Name</span>
+              </div>
+              <div class="detail-item">
+                <strong>Actors</strong>
+                <span id="movie-actors">Actor Names</span>
+              </div>
+              <div class="detail-item full-width">
+                <strong>Plot</strong>
+                <p id="movie-plot">Movie plot goes here...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
